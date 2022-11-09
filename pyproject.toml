@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "whisperts"
+version = "0.1.0"
+description = "This script modifies methods of Whisper's model to gain access to the predicted timestamp tokens of each word (token) without needing additional inference. It also stabilizes the timestamps down to the word (token) level to ensure chronology."
+authors = ["jian <jianfch@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+ffmpeg = "^1.4"
+numpy = "^1.23.4"
+torch = "^1.13.0"
+whisper = { git = "https://github.com/openai/whisper.git" }
+tqdm = "^4.64.1"
+
+
+[tool.poetry.group.dev.dependencies]
+autopep8 = "^2.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
