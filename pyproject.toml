@@ -8,11 +8,11 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-ffmpeg = "^1.4"
 numpy = "^1.23.4"
 torch = "^1.13.0"
 whisper = { git = "https://github.com/openai/whisper.git" }
 tqdm = "^4.64.1"
+ffmpeg-python = "^0.2.0"
 
 
 [tool.poetry.group.dev.dependencies]
