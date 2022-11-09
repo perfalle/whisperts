@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "whisperts"
 version = "0.1.0"
-description = "This script modifies methods of Whisper's model to gain access to the predicted timestamp tokens of each word (token) without needing additional inference. It also stabilizes the timestamps down to the word (token) level to ensure chronology."
-authors = ["jian <jianfch@gmail.com>"]
+description = "This package modifies methods of Whisper's model to gain access to the predicted timestamp tokens of each word (token) without needing additional inference. It also stabilizes the timestamps down to the word (token) level to ensure chronology."
+authors = ["jian <jianfch@gmail.com>", "Max Amling <max-amling@web.de>"]
 license = "MIT"
 readme = "README.md"
 

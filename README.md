@@ -1,7 +1,7 @@
 # Stabilizing Timestamps for Whisper
 
 ## Description
-This script modifies methods of Whisper's model to gain access to the predicted timestamp tokens of each word (token) without needing additional inference. It also stabilizes the timestamps down to the word (token) level to ensure chronology.
+This package modifies methods of Whisper's model to gain access to the predicted timestamp tokens of each word (token) without needing additional inference. It also stabilizes the timestamps down to the word (token) level to ensure chronology.
 
 ![image](https://user-images.githubusercontent.com/28970749/192950141-40ac8cbd-ccac-45da-b563-f8144d22c54e.png)
 
@@ -20,16 +20,15 @@ import whisper
 model = whisper.load_model('base')
 assert model.transcribe('audio.mp3').get('segments')
 ```
-3. Clone repo
+3. Install whisperts
 ```commandline
-git clone https://github.com/jianfch/stable-ts.git
-cd stable-ts
+pip install git+https://github.com/perfalle/whisperts.git
 ```
 
 ### Executing script
 ```python
 import whisper
-from stable_whisper import modify_model
+from whisperts import modify_model
 
 model = whisper.load_model('base')
 modify_model(model)
@@ -39,14 +38,14 @@ stab_segments = results['segments']
 first_segment_word_timestamps = stab_segments[0]['whole_word_timestamps']
 
 # or to get token timestamps that adhere more to the top prediction
-from stable_whisper import stabilize_timestamps
+from whisperts import stabilize_timestamps
 stab_segments = stabilize_timestamps(results, top_focus=True)
 ```
 
 ### Generate .srt with stable timestamps
 ```python
 # word-level 
-from stable_whisper import results_to_word_srt
+from whisperts import results_to_word_srt
 # after you get results from modified model
 # this treats a word timestamp as end time of the word
 # and combines words if their timestamps overlap
@@ -54,7 +53,7 @@ results_to_word_srt(results, 'audio.srt')  #combine_compound=True if compound wo
 ```
 ```python
 # sentence-level
-from stable_whisper import results_to_sentence_srt
+from whisperts import results_to_sentence_srt
 # after you get results from modified model
 results_to_sentence_srt(results, 'audio.srt')
 ```
